@@ -57,3 +57,12 @@ typings/
 # dotenv environment variables file
 .env
 
+# emacs bidnezz
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*

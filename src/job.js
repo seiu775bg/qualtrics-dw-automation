@@ -9,7 +9,7 @@ const params = { task: 'sync_all_surveys_test' };
 
 publisher.publish(dataBuffer, params)
   .then(function(result){
-    console.log(`Message ${result} published.`);
+    console.log(`$Message ${result} published.`);
   }).catch(err => {
     console.error('ERROR:', err);
   });
