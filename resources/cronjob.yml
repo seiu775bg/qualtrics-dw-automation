@@ -1,0 +1,22 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: qualtrics-dw-automation-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          volumes:
+            - name: google-cloud-key
+              secret:
+                secretName: qualtrics-datawarehouse-automation-pubsub-key          
+          containers:
+          - name: qualtrics-dw-automation-cronjob
+#             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            image: 10.55.243.98:5000/seiu775bg/qualtrics-dw-automation:0.0.6
+            volumeMounts:
+              - name: google-cloud-key
+                mountPath: /var/secrets/google
+          restartPolicy: OnFailure
